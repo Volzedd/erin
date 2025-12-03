@@ -14,19 +14,19 @@ const BottomMetadata = ({ video, extraMetadata }) => {
 
   return (
     <div className="bottom-metadata">
-      {_metadata.channel_image && _metadata.channel_name && (
-        <div className="channel">
+      <div className="channel">
+        {_metadata.channel_image && (
           <div className="avatar-wrapper">
             <img src={_metadata.channel_image} alt={_metadata.channel_name} />
           </div>
-          <span>{_metadata.channel_name}</span>
-        </div>
-      )}
+        )}
+        <span>{_metadata.channel_name}</span>
+      </div>
       {_metadata.video_caption && (
         <div
           className="video-caption"
-          dangerouslySetInnerHTML={{ __html: _metadata.video_caption }}
-        ></div>
+          dangerouslySetInnerHTML={{ __html: _metadata.video_caption }}>
+        </div>
       )}
       <div className="video-title" onClick={handleClick}>
         <FontAwesomeIcon icon={faFilm} style={{ width: "30px" }} />

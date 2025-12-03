@@ -165,6 +165,10 @@ const App = () => {
       })
         .then((r) => r.json())
         .then((r) => {
+          r["video_title"] = r.video_title || r.fulltitle || r.title;
+          r["video_caption"] = r.video_caption || r.description;
+          r["video_link"] = r.video_link || r.webpage_url;
+          r["channel_name"] = r.channel_name || r.channel || r.uploader;
           setCurrentVideoMetadata(r);
 
           if (r.video_title) _updatePageTitle({ title: r.video_title });
